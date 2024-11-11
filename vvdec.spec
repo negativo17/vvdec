@@ -1,5 +1,5 @@
 Name:           vvdec
-Version:        2.3.0
+Version:        3.0.0
 Release:        1%{?dist}
 Summary:        VVdeC, the Fraunhofer Versatile Video Decoder
 License:        BSD-3-Clause
@@ -33,10 +33,7 @@ developing applications that use %{name}.
 %autosetup -p1
 
 %build
-export CXXFLAGS="%{optflags} -Wno-error=maybe-uninitialized -Wno-error=uninitialized"
-%cmake \
-    -DCMAKE_SKIP_INSTALL_RPATH=OFF \
-    -DVVDEC_INSTALL_VVDECAPP=ON
+%cmake -DVVDEC_INSTALL_VVDECAPP=ON
 %cmake_build
 
 %install
@@ -48,7 +45,7 @@ export CXXFLAGS="%{optflags} -Wno-error=maybe-uninitialized -Wno-error=uninitial
 %files libs
 %license LICENSE.txt
 %doc README.md
-%{_libdir}/lib%{name}.so.2
+%{_libdir}/lib%{name}.so.3
 %{_libdir}/lib%{name}.so.%{version}
 
 %files devel
@@ -58,5 +55,8 @@ export CXXFLAGS="%{optflags} -Wno-error=maybe-uninitialized -Wno-error=uninitial
 %{_libdir}/pkgconfig/lib%{name}.pc
 
 %changelog
+* Mon Nov 11 2024 Simone Caronni <negativo17@gmail.com> - 3.0.0-1
+- Update to 3.0.0.
+
 * Fri Aug 23 2024 Simone Caronni <negativo17@gmail.com> - 2.3.0-1
 - First build.
