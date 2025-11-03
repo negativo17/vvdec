@@ -1,6 +1,6 @@
 Name:           vvdec
 Version:        3.0.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        VVdeC, the Fraunhofer Versatile Video Decoder
 License:        BSD-3-Clause
 URL:            https://github.com/fraunhoferhhi/%{name}
@@ -33,7 +33,11 @@ developing applications that use %{name}.
 %autosetup -p1
 
 %build
-%cmake -DVVDEC_INSTALL_VVDECAPP=ON
+%cmake \
+%ifarch %{ix86}
+	-DVVDEC_ENABLE_X86_SIMD=OFF \
+%endif
+	-DVVDEC_INSTALL_VVDECAPP=ON
 %cmake_build
 
 %install
@@ -55,6 +59,9 @@ developing applications that use %{name}.
 %{_libdir}/pkgconfig/lib%{name}.pc
 
 %changelog
+* Mon Nov 03 2025 Simone Caronni <negativo17@gmail.com> - 3.0.0-2
+- Fix i686 build.
+
 * Mon Nov 11 2024 Simone Caronni <negativo17@gmail.com> - 3.0.0-1
 - Update to 3.0.0.
 
