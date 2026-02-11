@@ -34,6 +34,7 @@ developing applications that use %{name}.
 
 %build
 %cmake \
+	-DVVDEC_ENABLE_WERROR=OFF \
 %ifarch %{ix86}
 	-DVVDEC_ENABLE_X86_SIMD=OFF \
 %endif
