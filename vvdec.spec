@@ -1,5 +1,5 @@
 Name:           vvdec
-Version:        3.1.0
+Version:        3.2.0
 Release:        1%{?dist}
 Summary:        VVdeC, the Fraunhofer Versatile Video Decoder
 License:        BSD-3-Clause
@@ -60,6 +60,9 @@ developing applications that use %{name}.
 %{_libdir}/pkgconfig/lib%{name}.pc
 
 %changelog
+* Sun Aug 09 2026 Simone Caronni <negativo17@gmail.com> - 3.2.0-1
+- Update to 3.2.0.
+
 * Thu Nov 27 2025 Simone Caronni <negativo17@gmail.com> - 3.1.0-1
 - Update to 3.1.0.
 
